@@ -11,6 +11,20 @@ services:
 
     volumes:
       - pg_data:/var/lib/postgresql/data
+ 
+   
+  redis-demo:
+    image: redis:latest
+    container_name: redis-demo
+    ports:
+      - "6379:6379"
+    command: ["redis-server", "--requirepass", "${REDIS_PASSWORD}"] 
+    volumes:
+     - redis_data:/data
+    restart: unless-stopped
+
+
 
 volumes:
   pg_data:
+  redis_data:
