@@ -1,6 +1,35 @@
 @PostgresDemo_HostAddress = http://localhost:5263
 
-GET {{PostgresDemo_HostAddress}}/weatherforecast/
+GET {{PostgresDemo_HostAddress}}/api/Products/
+Accept: application/json
+
+###
+POST {{PostgresDemo_HostAddress}}/api/Products/
+Accept: application/json
+Content-Type: application/json
+{
+  "name": "New Product",
+  "price": 19.99,
+  "description": "A brand new product"
+}
+
+###
+PUT {{PostgresDemo_HostAddress}}/api/Products/1
+Accept: application/json
+Content-Type: application/json
+{
+  "id": 1,
+  "name": "Updated Product",
+  "price": 29.99,
+  "description": "An updated product description"
+}
+
+###
+DELETE {{PostgresDemo_HostAddress}}/api/Products/1
+Accept: application/json
+
+###
+GET {{PostgresDemo_HostAddress}}/api/Products/1
 Accept: application/json
 
 ###
